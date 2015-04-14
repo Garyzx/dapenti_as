@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources >
+
+    <string name="app_name" translatable="false">打喷嚏</string>
+    <string name="action_settings" translatable="false">设置</string>
+    <string name="tugua" translatable="false">图卦</string>
+    <string name="twitte" translatable="false">段子</string>
+    <string name="picture" translatable="false">意图</string>
+    <string name="favourite" translatable="false">收藏</string>
+    <string name="refresh" translatable="false">刷新</string>
+    <string name="title_activity_tugua_detail" translatable="false">每日图卦</string>
+    <string name="add_favourite" translatable="false">添加到收藏</string>
+    <string name="remove_favourite" translatable="false">从收藏移除</string>
+    <string name="copy_title" translatable="false">复制标题</string>
+    <string name="copy_text" translatable="false">复制文字</string>
+    <string name="open_in_browser" translatable="false">浏览器中打开</string>
+    <string name="share" translatable="false">分享</string>
+    <string name="original_content">浏览原始内容</string>
+    <string name="optimized_content">浏览优化后内容</string>
+    <string name="more">更多</string>
+    <string name="press_again">再按一次退出</string>
+    <string name="get_data_failed">获取数据失败</string>
+    <string name="already_copied_to_clip">已经复制标题到剪贴板</string>
+    <string name="already_added_to_fav">已经添加到收藏</string>
+    <string name="already_removed_from_fav">已经从收藏中移除</string>
+    <string name="item_chosen">个项目已选择</string>
+    <string name="loading">正在加载...</string>
+    <string name="no_data">没有数据</string>
+    <string name="no_more_data_try_refresh">没有更多数据了，刷新试试</string>
+    <string name="no_more_data">没有更多数据了</string>
+    <string name="already_updated">已经是最新了</string>
+    <string name="update_failed">更新出错了</string>
+    <string name="html_loading"><html><head><body><h1><strong>正在加载...</strong></h1></body></head></html></string>
+
+</resources>

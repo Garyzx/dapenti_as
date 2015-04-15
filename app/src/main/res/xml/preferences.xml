@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="是否载入图片" >
+    <PreferenceCategory android:title="是否载入图片">
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="loadPicture"
@@ -11,13 +11,23 @@
             android:key="loadPictureUnderWIFI"
             android:title="只在WIFI连接时加载图片" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="频道设置" >
+    <PreferenceCategory android:title="频道设置">
         <ListPreference
             android:defaultValue="0"
             android:entries="@array/tab_name_list"
             android:entryValues="@array/tab_name_values"
             android:key="defaultChannel"
             android:title="默认频道设置" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="其它">
+        <Preference android:title="项目地址" android:summary="@string/project_location">
+            <intent android:action="android.intent.action.VIEW" android:data="@string/project_location" />
+        </Preference>
+        <Preference android:title="关于" android:summary="@string/version_name">
+
+        </Preference>
+
+
     </PreferenceCategory>
 
 </PreferenceScreen>

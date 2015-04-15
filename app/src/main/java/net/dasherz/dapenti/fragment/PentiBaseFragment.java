@@ -1,23 +1,8 @@
 package net.dasherz.dapenti.fragment;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-
-import net.dasherz.dapenti.R;
-import net.dasherz.dapenti.activity.PentiDetailActivity;
-import net.dasherz.dapenti.adapter.PentiAdapter;
-import net.dasherz.dapenti.constant.Constants;
-import net.dasherz.dapenti.database.DBConstants;
-import net.dasherz.dapenti.database.DBHelper;
-import net.dasherz.dapenti.database.Penti;
-import net.dasherz.dapenti.util.LogUtil;
-import net.dasherz.dapenti.util.NetUtil;
-import net.dasherz.dapenti.xml.PentiXmlParser;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -37,6 +22,21 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import net.dasherz.dapenti.R;
+import net.dasherz.dapenti.activity.PentiDetailActivity;
+import net.dasherz.dapenti.adapter.PentiAdapter;
+import net.dasherz.dapenti.constant.Constants;
+import net.dasherz.dapenti.database.DBConstants;
+import net.dasherz.dapenti.database.DBHelper;
+import net.dasherz.dapenti.database.Penti;
+import net.dasherz.dapenti.util.LogUtil;
+import net.dasherz.dapenti.util.NetUtil;
+import net.dasherz.dapenti.xml.PentiXmlParser;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -153,7 +153,7 @@ public abstract class PentiBaseFragment extends Fragment {
 
 	private void handlePullingDownRefresh(View root) {
 		swipeLayout = (SwipeRefreshLayout) root.findViewById(R.id.swipe_container);
-		swipeLayout.setColorSchemeColors(Color.BLACK, Color.BLUE, Color.GREEN, Color.YELLOW);
+		swipeLayout.setColorSchemeResources(R.color.holo_blue_color,R.color.red);
 		swipeLayout.setOnRefreshListener(new OnRefreshListener() {
 
 			@Override
@@ -184,6 +184,7 @@ public abstract class PentiBaseFragment extends Fragment {
 				intent.putExtra(DBConstants.ITEM_TITLE, item.getTitle());
 				intent.putExtra(DBConstants.ITEM_DESCRIPTION, item.getDescription());
 				intent.putExtra(DBConstants.ITEM_LINK, item.getLink());
+				intent.putExtra(DBConstants.ITEM_CONTENT_TYPE, item.getContentType());
 				startActivity(intent);
 
 			}
@@ -214,6 +215,7 @@ public abstract class PentiBaseFragment extends Fragment {
 	public void getLatestData() {
 		if (!isRefreshing) {
 			isRefreshing = true;
+            swipeLayout.setRefreshing(true);
 			new GetNewItemTask().execute(getContentType());
 		}
 

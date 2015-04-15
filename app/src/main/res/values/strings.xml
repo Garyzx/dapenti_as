@@ -9,6 +9,7 @@
     <string name="favourite" translatable="false">收藏</string>
     <string name="refresh" translatable="false">刷新</string>
     <string name="title_activity_tugua_detail" translatable="false">每日图卦</string>
+    <string name="title_activity_picture_detail" translatable="false">意图</string>
     <string name="add_favourite" translatable="false">添加到收藏</string>
     <string name="remove_favourite" translatable="false">从收藏移除</string>
     <string name="copy_title" translatable="false">复制标题</string>
@@ -31,5 +32,9 @@
     <string name="already_updated">已经是最新了</string>
     <string name="update_failed">更新出错了</string>
     <string name="html_loading"><html><head><body><h1><strong>正在加载...</strong></h1></body></head></html></string>
+    <string name="title_activity_about">关于</string>
+    <string name="project_location">https://github.com/lh-dasherz/dapenti_as</string>
+    <string name="version_name">0.1.0</string>
+
 
 </resources>

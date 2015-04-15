@@ -32,7 +32,7 @@ public class NetUtil {
 
     // convert InputStream to String
     // for web show only
-    public static String getContentOfURL(String url, boolean optimizeHTML) throws IOException {
+    public static String getContentOfURL(String url) throws IOException {
         InputStream is = downloadUrl(url);
         BufferedReader br = null;
         StringBuilder sb = new StringBuilder();
@@ -40,9 +40,7 @@ public class NetUtil {
         try {
             br = new BufferedReader(new InputStreamReader(is));
             while ((line = br.readLine()) != null) {
-                if (optimizeHTML) {
-                    line = optimizeHTMLCode(line);
-                }
+
                 sb.append(line);
             }
 
@@ -60,18 +58,6 @@ public class NetUtil {
         return sb.toString();
     }
 
-    private static String optimizeHTMLCode(String line) {
-        if (isNormalEmoji(line)) {
-            line = line.replace("<IMG", "<IMG width=\"100%\"");
-            line = line.replace("<img", "<img width=\"100%\"");
-        }
-        line = line.replace("<p>&nbsp;</p>", "").replace("<p><strong><font size=\"3\"></font></strong>&nbsp;</p>", "");
-        line = line.replaceAll("<IFRAME[^>]+?></IFRAME>", "");
-        line = line.replaceAll("<OBJECT.+?>", "");
-        line = line.replaceAll("<embed.+?></embed>", "");
-        line = line.replaceAll("(<A[^>]+?>)(http.+?)(</A>)", "$1链接地址$3");
-        return line;
-    }
 
     private static boolean isNormalEmoji(String line) {
         if (line.contains("<IMG") || line.contains("<img")) {

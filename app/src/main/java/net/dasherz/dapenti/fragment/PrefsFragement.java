@@ -19,6 +19,7 @@ public class PrefsFragement extends PreferenceFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
+
         LogUtil.d(TAG, this.getPreferenceManager().getSharedPreferencesName());
     }
 

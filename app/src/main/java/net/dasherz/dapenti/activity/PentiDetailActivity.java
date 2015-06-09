@@ -125,10 +125,8 @@ public class PentiDetailActivity extends ActionBarActivity  {
             if (lines == null) {
                 lines = getResources().getString(R.string.get_data_failed);
             }
-            String content = "<html xmlns=\"http://www.w3.org/1999/xhtml\" ><head><meta http-equiv='content-type' content='text/html; charset=utf-8' /></head><body>"
+            return "<html xmlns=\"http://www.w3.org/1999/xhtml\" ><head><meta http-equiv='content-type' content='text/html; charset=utf-8' /></head><body>"
                     + lines + "</body>";
-            lines = null;
-            return content;
         }
 
         @Override
@@ -165,7 +163,8 @@ public class PentiDetailActivity extends ActionBarActivity  {
         int menuId = item.getItemId();
         switch (menuId) {
             case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
+                //NavUtils.navigateUpFromSameTask(this);
+                this.finish();
                 break;
             case R.id.add_favourite:
                 new AddToFavTask().execute(String.valueOf(id));

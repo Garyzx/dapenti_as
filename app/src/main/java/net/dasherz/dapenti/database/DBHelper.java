@@ -45,7 +45,7 @@ public class DBHelper {
     }
 
     private String convertHtmlToText(String desc) {
-        desc = desc.replaceAll("<[A-Z]{1,4}[^>]{0,}>", "").replaceAll("</[A-Z]{1,4}>", "").replaceAll("&nbsp;", " ")
+        desc = desc.replaceAll("<[A-Za-z]{1,4}[^>]{0,}>", "").replaceAll("</[A-Za-z]{1,4}>", "").replaceAll("&nbsp;", " ")
                 .replaceAll("&#8943;", "--");
         return desc.trim();
     }
@@ -63,7 +63,7 @@ public class DBHelper {
     public List<Penti> readItems(int contentType, int limit, int offset) {
         QueryBuilder<Penti> queryBuilder = pentiDao.queryBuilder().limit(limit).offset(offset)
                 .orderDesc(Properties.PubDate);
-        // FIXME magin number
+        // FIXME magic number
 
         if (contentType != -1) {
             queryBuilder = queryBuilder.where(Properties.ContentType.eq(contentType));
